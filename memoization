@@ -1,0 +1,22 @@
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n=len(cost)
+        def f(self,cost,n,dp):
+            if n<=1:
+                dp[n]=0
+                return dp[n]
+            if dp[n]!=-1:
+                return dp[n]
+            one,two=10001,10001
+            if n-1>=0:
+                one=cost[n-1]+f(self,cost,n-1,dp)
+            if n-2>=0:
+                two=cost[n-2]+f(self,cost,n-2,dp)
+            dp[n]=min(one,two)
+            return dp[n]
+            
+
+
+
+        dp=[-1 for i in range(n+1)]
+        return f(self,cost,n,dp) 
